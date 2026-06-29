@@ -19,7 +19,7 @@
           },
           {
             "group": "Tools",
-            "pages": ["tools/scan", "tools/trace", "tools/attack", "tools/doctor"]
+            "pages": ["tools/launcher", "tools/scan", "tools/trace", "tools/attack", "tools/doctor"]
           },
           {
             "group": "Guides",
