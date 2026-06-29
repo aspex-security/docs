@@ -1,47 +1,127 @@
 ---
 title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+description: "Get MCP security scanning running in under a minute."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
-
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
 
-    ```bash
-    npm install your-package
-    ```
-  </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
+<Step title="Install">
 
-    ```bash
-    your-cli init
-    ```
-  </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
+<CodeGroup>
 
-    ```bash
-    your-cli start
-    ```
-  </Step>
+```bash Homebrew
+brew install aspex-security/tap/aspex
+```
+
+```bash curl
+curl -fsSL https://raw.githubusercontent.com/aspex-security/aspex/main/install.sh | sh
+```
+
+```bash GitHub Releases
+# Download the binary for your platform from:
+# https://github.com/aspex-security/aspex/releases
+```
+
+</CodeGroup>
+
+</Step>
+
+<Step title="Your first scan">
+
+Run `aspex-scan` to audit every MCP server configured on your machine.
+
+```bash
+aspex-scan
+```
+
+```
+aspex-scan v0.5.3
+
+Clients   Claude Desktop · Claude Code · Cursor
+Servers   12 discovered
+
+  filesystem   score 41   HIGH    3 critical findings
+  github       score 78   MEDIUM  2 findings
+  postgres     score 55   HIGH    4 findings
+  ...
+
+Overall score  61 / 100   MEDIUM
+Attack paths   2 cross-server kill chains detected
+
+Run aspex-scan --explain for full advisories.
+```
+
+Add `--explain` for a full advisory on every finding (WHY, EXPLOIT, IMPACT, CONFIDENCE), or `--html` to generate a shareable report.
+
+</Step>
+
+<Step title="Check what happened">
+
+`aspex-trace` reads native log files from Claude Desktop, Claude Code, Cursor, Windsurf, Cline, and Roo — no proxy, no config change required.
+
+```bash
+aspex-trace
+```
+
+```
+aspex-trace v0.5.3
+
+Sessions   47 analysed
+Findings   3 kill chains reconstructed
+
+  CRITICAL  Credential Exfiltration     session a3f2 · 14:02
+  HIGH      Prompt Injection Signature  session b91c · 09:45
+  MEDIUM    Recon to Credential Theft   session d007 · yesterday
+
+Run aspex-trace session <id> for session forensics.
+Run aspex-trace killchain for full MITRE-mapped chains.
+```
+
+</Step>
+
+<Step title="Health check">
+
+`aspex-doctor` runs a fast offline health check in ~2 seconds.
+
+```bash
+aspex-doctor
+```
+
+```
+aspex-doctor v0.5.3
+
+Clients      ✓ 3 installed, configs valid
+Environment  ✗ GITHUB_TOKEN exposed in shell env (zshrc)
+Config secrets  ✗ API_KEY hardcoded in claude_desktop_config.json
+Filesystem   ✗ Path grant covers home directory (~/): filesystem server
+Network      ✓ All servers use HTTPS
+
+3 issues found. Run aspex-scan fix env to migrate credentials to Keychain.
+```
+
+</Step>
+
+<Step title="Interactive launcher">
+
+Run `aspex` with no arguments to open the interactive TUI menu.
+
+```bash
+aspex
+```
+
+```
+  ┌─────────────────────────────────────────────────┐
+  │  aspex  MCP Security Suite                      │
+  │                                                 │
+  │  ▶  scan          Audit all MCP servers         │
+  │     trace         Analyse runtime logs          │
+  │     attack        Adversarial probe (opt-in)    │
+  │     doctor        Quick health check            │
+  │                                                 │
+  │  ↑↓ navigate · enter select · q quit            │
+  └─────────────────────────────────────────────────┘
+```
+
+</Step>
+
 </Steps>
-
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
