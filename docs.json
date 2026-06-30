@@ -18,8 +18,12 @@
             "pages": ["introduction", "quickstart"]
           },
           {
-            "group": "Tools",
-            "pages": ["tools/launcher", "tools/scan", "tools/trace", "tools/attack", "tools/doctor"]
+            "group": "Core Tools",
+            "pages": ["tools/launcher", "tools/scan", "tools/trace"]
+          },
+          {
+            "group": "Advanced",
+            "pages": ["tools/attack", "tools/doctor"]
           },
           {
             "group": "Guides",
