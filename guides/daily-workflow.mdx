@@ -65,13 +65,13 @@ aspex trace stats --since 48h
 aspex trace session <session-id>
 
 # 3. Reconstruct the full kill chain with MITRE references
-aspex trace killchain --session <session-id>
+aspex trace killchain --since 48h
 
 # 4. Trace a finding back to what the agent ingested (file read, URL fetch)
-aspex trace provenance --session <session-id>
+aspex trace provenance --since 48h
 
 # 5. Export the session for your SIEM or incident record
-aspex trace export --session <session-id> --format jsonl > incident-$(date +%F).jsonl
+aspex trace export --since 48h --format jsonl --output incident-$(date +%F).jsonl
 ```
 
 If you suspect a server is actively serving different tools than it advertised:
@@ -123,5 +123,5 @@ aspex scan --report soc2
 Schedule the full scan as a cron job so you get a weekly baseline automatically:
 
 ```bash
-aspex scan cron --schedule "0 8 * * 1"
+aspex scan cron --interval 6h
 ```
