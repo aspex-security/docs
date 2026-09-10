@@ -53,7 +53,7 @@ aspex trace stats --since 24h --suppress-noise
 
 ---
 
-## Something looks wrong — investigate
+## Something looks wrong - investigate
 
 Use this flow when a kill chain hit surfaces or an agent behaved unexpectedly.
 
@@ -77,7 +77,7 @@ aspex trace export --since 48h --format jsonl --output incident-$(date +%F).json
 If you suspect a server is actively serving different tools than it advertised:
 
 ```bash
-# Phantom detection — compares tool lists across successive calls
+# Phantom detection - compares tool lists across successive calls
 aspex scan phantom
 
 # Check cross-server attack paths
@@ -87,7 +87,7 @@ aspex scan attack-paths
 To actively probe a server you own and control:
 
 ```bash
-# Requires explicit consent — only run against servers you operate
+# Requires explicit consent - only run against servers you operate
 aspex attack --target "npx -y @your-org/your-server" --consent
 ```
 
@@ -98,7 +98,7 @@ aspex attack --target "npx -y @your-org/your-server" --consent
 Run these once a week to catch drift and credential sprawl.
 
 ```bash
-# 1. Rug-pull detection — compare current tool definitions against your baseline
+# 1. Rug-pull detection - compare current tool definitions against your baseline
 aspex scan diff --baseline ~/aspex-baseline.json
 
 # Save a fresh baseline after review
