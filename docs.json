@@ -27,7 +27,7 @@
           },
           {
             "group": "Guides",
-            "pages": ["guides/ci-integration", "guides/daily-workflow", "guides/vscode"]
+            "pages": ["guides/policy", "guides/ci-integration", "guides/daily-workflow", "guides/vscode"]
           },
           {
             "group": "Reference",
