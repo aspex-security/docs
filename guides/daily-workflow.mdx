@@ -113,12 +113,17 @@ aspex doctor
 # 4. Migrate any flagged tokens to macOS Keychain
 aspex scan fix env
 
-# 5. Generate a shareable summary (privacy-safe, no tool output values)
+# 5. Review the commands your agent runs on its own (lifecycle hooks)
+aspex scan hooks
+
+# 6. Generate a shareable summary (privacy-safe, no tool output values)
 aspex scan --share
 
-# 6. Compliance export if your team needs it
+# 7. Compliance export if your team needs it
 aspex scan --report soc2
 ```
+
+Hooks are commands the agent runs automatically on tool-use, stop, or prompt-submit. They are standing executable state most people forget, and the target a persistence path would write, so they are worth a periodic look even when nothing is wrong.
 
 Schedule the full scan as a cron job so you get a weekly baseline automatically:
 
