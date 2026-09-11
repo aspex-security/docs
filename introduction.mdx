@@ -28,32 +28,6 @@ brew install aspex-security/tap/aspex && aspex     # or: npx aspex
 `aspex` with no arguments joins your MCP configs with your clients' logs and shows one screen. Real output from the maintainer's machine, nothing sent anywhere:
 
 ```
-$ aspex
-
-  ▸ In the last 30 days your agents made 333 tool calls to 12 MCP servers.
-  ▸ 329 of those calls went to 11 servers no security scan had ever checked.
-  ▸ 1 call tripped a detection rule. Most common: cross-server data chain (1).
-  ▸ 7 configured servers, overall security score 39/100. […]
-
-    desktop-commander     80  HIGH      not used
-    filesystem            80  HIGH      not used
-    github                80  HIGH      not used
-    brave-search          80  HIGH      not used
-    playwright            90  MEDIUM    not used
-    slack                 95  clean     4 calls
-```
-$ aspex
-
-  ▸ In the last 30 days your agents made 320 tool calls to 12 MCP servers.
-  ▸ 316 of those calls went to 11 servers no security scan had ever checked.
-  ▸ 2 calls tripped a detection rule. Most common: cross-server data chain.
-  ▸ 7 configured servers, overall security score 54 / 100.
-
-    github                39   CRITICAL   not used
-    brave-search          39   CRITICAL   not used
-    playwright            90   MEDIUM     not used
-    slack                 95   clean      4 calls
-```
 
 Then a menu opens underneath. [The front door →](/tools/launcher)
 
