@@ -1,0 +1,45 @@
+---
+title: "Quickstart"
+description: "Install, see what your agents did, scan what they could do. About a minute."
+---
+
+<Steps>
+
+<Step title="Install">
+
+<CodeGroup>
+
+```bash Homebrew
+brew install aspex-security/tap/aspex
+```
+
+```bash npm
+npx aspex              # run without installing
+npm install -g aspex   # or put it on PATH
+```
+
+```bash curl
+curl -fsSL https://raw.githubusercontent.com/aspex-security/aspex/main/install.sh | sh
+```
+
+```bash Binary
+# macOS, Linux, Windows: https://github.com/aspex-security/aspex/releases
+```
+
+</CodeGroup>
+
+One Go binary. Every release ships SHA-256 checksums.
+
+</Step>
+
+<Step title="See the whole picture">
+
+Run `aspex` with no arguments. It joins your MCP configs with your clients' own logs.
+
+```
+
+From here: [daily workflow](/guides/daily-workflow), [CI integration](/guides/ci-integration), or [how Aspex reasons](/concepts/how-aspex-reasons).
+
+</Step>
+
+</Steps>
